@@ -13,7 +13,7 @@ pillow==11.1.0
 
 # Model / inference deps (from the model card) --------------------------------
 transformers==4.57.1
-opencv-python-headless==4.11.0.86
+opencv-python-headless==4.13.0.92
 numpy==1.25.0
 peft
 decord==0.6.0
