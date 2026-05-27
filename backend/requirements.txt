@@ -17,7 +17,7 @@ opencv-python-headless==4.11.0.86
 numpy==1.25.0
 peft
 decord==0.6.0
-lmdb==1.7.5
+lmdb==2.2.0
 accelerate
 
 # Optional, Hopper/Blackwell only — uncomment + see model card for build steps:
