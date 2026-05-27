@@ -2,7 +2,7 @@
 # CUDA 12.8 so we get native kernels for the full supported GPU range:
 # Ampere (RTX 30xx, A100), Lovelace (RTX 40xx), Hopper (H100), and
 # Blackwell (RTX 50xx) — sm_120 has no kernels in older cu124 builds.
-FROM nvidia/cuda:12.8.1-cudnn-runtime-ubuntu22.04
+FROM nvidia/cuda:13.2.1-cudnn-runtime-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
