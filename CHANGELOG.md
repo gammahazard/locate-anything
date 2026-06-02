@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Bump Pillow to 12.2.0, clearing the open image-parsing advisories (PSD out-of-bounds write, FITS/PDF decompression/DoS, font integer overflow).
 - Bump vite to 6.4.3 and vitest to 4.1.8 (esbuild 0.25.12), clearing the dev-server path-traversal and Vitest UI-server advisories. These are dev/test-only tools and are not part of the shipped images.
-- Harden `resolveUrl()` to return only a same-origin relative path or an `http(s)` absolute URL (rebuilt via the URL API with an explicit protocol allowlist), making the "no script-bearing scheme reaches an `<img src>`" invariant explicit at the sink.
+- Harden `resolveUrl()` to return only a same-origin relative path or an `http(s)` absolute URL (rebuilt via the URL API with an explicit protocol allowlist), and guard the Scope `<img>` src with the same allowlist, making the "no script-bearing scheme reaches an `<img src>`" invariant explicit at both sinks.
 
 ### Documentation
 - Add an "Updating" section to the README covering how to pull new releases.

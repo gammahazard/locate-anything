@@ -10,10 +10,17 @@ interface Props {
   scanning?: boolean;
 }
 
+/** Allow only a relative path, blob:, or http(s) URL into the <img src> sink. */
+function safeImageSrc(src: string | null): string | null {
+  if (!src) return null;
+  return /^(https?:|blob:)/i.test(src) || src.startsWith("/") ? src : null;
+}
+
 export default function Scope({ src, boxes, points, scanning }: Props) {
   const [dims, setDims] = useState<{ w: number; h: number } | null>(null);
+  const safeSrc = safeImageSrc(src);
 
-  if (!src) {
+  if (!safeSrc) {
     return (
       <div className="ticks panel flex aspect-[4/3] w-full items-center justify-center">
         <div className="text-center">
@@ -37,7 +44,7 @@ export default function Scope({ src, boxes, points, scanning }: Props) {
       style={{ aspectRatio: dims ? `${dims.w} / ${dims.h}` : "4 / 3" }}
     >
       <img
-        src={src}
+        src={safeSrc}
         alt="analysis target"
         onLoad={(e) =>
           setDims({ w: e.currentTarget.naturalWidth, h: e.currentTarget.naturalHeight })
