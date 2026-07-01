@@ -9,7 +9,7 @@ fastapi>=0.115
 uvicorn[standard]>=0.30
 pydantic>=2.7
 python-multipart>=0.0.9
-pillow==12.2.0
+pillow==12.3.0
 
 # Model / inference deps (from the model card) --------------------------------
 transformers==4.57.1
